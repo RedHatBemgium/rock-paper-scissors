@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+// “rock”, “paper” or “scissors”. 
+
+let rock = 1
+let paper = 2
+let scissors = 3
+let humanScore = 0
+let computerScore = 0
+let humanNumber = null
+let computerAnswer = null
+let humanAnswer = null
+
+function getComputerChoice() {
+//declare the 3 sting types and asign a number to them 1 to 3.
+
+//create or call a function that genrates random 1 - 3
+// Returns a random integer from 0 to 9:
+randomNumber = Math.floor(Math.random() * 3 + 1); 
+
+
+//write a function that converts the randomnumber into the string
+     if (randomNumber == 1) {
+        computerAnswer = "rock";
+} else if (randomNumber == 2) {
+    computerAnswer = "paper";
+} else {
+    computerAnswer = "scissors";
+}
+console.log(computerAnswer)
+}
+
+
+function getHumanChoice() {
+     humanAnswer = String(window.prompt("rock/paper/scissors"));
+           humanAnswer = humanAnswer.toLowerCase()
+           if (humanAnswer == "rock" || humanAnswer == "paper" || humanAnswer == "scissors") { console.log("Human gave answe: " + humanAnswer)
+           }
+
+           else {
+            console.log("You answer weapong is not correct")
+            
+           }
+           
+}
+    
+function playRound() {
+// Get computers answer in x
+let x = computerAnswer
+// Get user answer in Y
+let y = humanAnswer
+//if x is equal to y : result is tie
+if (x == y) {
+    console.log("tied")
+}
+//if x has rock and Y scissors : Result x wins
+else if (x == "rock" && y == "scissors") {
+  console.log("X crushed you with the Rock") 
+  computerScore = computerScore + 1
+ }
+//if x has paper and y rock : result x wins
+else if (x == "paper" && y == "rock") {
+    console.log("X put smoked you with paper") 
+    computerScore = computerScore + 1
+}
+//if x has scissors and y has paper x wins
+else if (x == "scissors" && y == "paper") {
+    console.log("X wins") 
+    computerScore = computerScore + 1
+}
+
+    else if (y === "rock" && x === "scissors") {
+        console.log("Y crushed X with the Rock!"); humanScore = humanScore + 1
+    } else if (y === "paper" && x === "rock") {
+        console.log("Y smoked X with Paper!"); humanScore = humanScore + 1
+    } else if (y === "scissors" && x === "paper") {
+        console.log("Y wins with Scissors!"); humanScore = humanScore + 1
+    }
+    // Handle invalid inputs
+    else {
+        console.log("Invalid choice(s). Please choose rock, paper, or scissors.");
+    }
+}
+
+function playGame()
+{
+    
+    getComputerChoice()
+    getHumanChoice()
+    playRound()
+
+}
+
+
+
+function loopGame() {
+    while (humanScore < 5 && computerScore < 5) { 
+        playGame(); 
+    }
+
+    if (humanScore === 5) {
+        console.log("Human wins the game!");
+    } else if (computerScore === 5) {
+        console.log("Computer wins the game!");
+    }
+
+    console.log("Final Score - Human: " + humanScore + ", Computer: " + computerScore);
+}
+
+loopGame()
+
+
+
+
+</script>
+</body>
+</html>
