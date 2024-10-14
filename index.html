@@ -99,23 +99,35 @@ function playGame()
 
 }
 
+playGame()
 
-
-function loopGame() {
-    while (humanScore < 5 && computerScore < 5) { 
-        playGame(); 
-    }
-
-    if (humanScore === 5) {
-        console.log("Human wins the game!");
-    } else if (computerScore === 5) {
-        console.log("Computer wins the game!");
-    }
-
-    console.log("Final Score - Human: " + humanScore + ", Computer: " + computerScore);
+while (humanScore < 5 && computerScore < 5 ) {
+    playGame()
 }
+console.log("Game over!");
 
-loopGame()
+
+// function loopGame() {
+//     while (humanScore < 5 && computerScore < 5) { 
+//         playGame(); 
+//     }
+
+//     if (humanScore === 5) {
+//         console.log("Human wins the game!");
+//     } else if (computerScore === 5) {
+//         console.log("Computer wins the game!");
+//     }
+//     else {
+//         console.log("Try again")
+//     }
+
+
+//     console.log("Final Score - Human: " + humanScore + ", Computer: " + computerScore);
+// }
+
+console.log(computerScore)
+console.log(humanScore)
+
 
 
 
